@@ -59,16 +59,19 @@ export class AddDeveloper extends Component {
                                 <input type="text" name="firstName" className="form-control" onChange={this.handleChange}/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="firstName">Last Name</label>
+                                <label htmlFor="lastName">Last Name</label>
                                 <input type="text" name="lastName" className="form-control" onChange={this.handleChange}/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="firstName">Favorite Dev Language</label>
+                                <label htmlFor="favortieLanguage">Favorite Dev Language</label>
                                 <input type="text" name="favoriteLanguage" className="form-control" onChange={this.handleChange}/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="firstName">Year Started</label>
+                                <label htmlFor="yearStarted">Year Started</label>
                                 <input type="text" name="yearStarted" className="form-control" onChange={this.handleChange}/>
+                            </div>
+                            <div className="form-group">
+                                <button  type="submit" className="btn btn-success" >Submit</button>
                             </div>
                         </form>
                     </div>
