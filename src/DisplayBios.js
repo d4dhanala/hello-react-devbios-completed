@@ -11,6 +11,7 @@ export class DisplayBios extends Component {
                 new Developer(2,"Bill","Gate","BASIC",1970)
             ]
         }
+        
     }
     
     render() {
