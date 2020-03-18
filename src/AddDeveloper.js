@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Developer from './Developer';
+import { withRouter } from 'react-router-dom';
 
 export class AddDeveloper extends Component {
     constructor(props){
@@ -24,15 +25,22 @@ export class AddDeveloper extends Component {
 
     submitForm = (event) => {
         event.preventDefault();
-        this.props.addDeveloper(
+        let developer = 
             new Developer(
                 null,
                 this.state.firstName,
                 this.state.lastName,
                 this.state.favoriteLanguage,
                 this.state.yearStarted
-            )
         );
+        fetch('https://developer-service-overspeedy-celebratedness.cfapps.io/developer',
+            {
+              method: 'POST',
+              body: JSON.stringify(developer),
+              headers: {'Content-Type':'application/json'}
+            }
+        )
+            
         this.clearForm();
     }
 
@@ -44,6 +52,7 @@ export class AddDeveloper extends Component {
             yearStarted:''
         });
         document.getElementById('devForm').reset();
+        this.props.history.push('/bios');
     }
     
     
@@ -82,6 +91,6 @@ export class AddDeveloper extends Component {
     }
 }
 
-export default AddDeveloper
+export default withRouter(AddDeveloper);
 
 

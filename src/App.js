@@ -1,47 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+
 import DisplayBios from './DisplayBios';
 import AddDeveloper from './AddDeveloper';
-import Developer from './Developer';
+import Navbar from './Navbar';
+import Home from './Home';
+
+const history = createBrowserHistory();
 
 class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      developers:[
-          new Developer(1,"Jason","Monroe","JavaScript",2006),
-          new Developer(2,"Bill","Gate","BASIC",1970)
-      ]
+      developers:[]
     }
   }
 
-  addDeveloper = (dev) => {
-    dev.id = this.state.developers.length+1;
-    let newDevs = [...this.state.developers,dev];
-    this.setState({developers:newDevs});
-  } 
+  componentDidMount(){
+    fetch("https://developer-service-overspeedy-celebratedness.cfapps.io/developers")
+    .then(response=>response.json())
+    .then(devs=>this.setState({developers:devs}));
+  }
 
   render(){
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          <DisplayBios developers={this.state.developers}/>
-          <AddDeveloper addDeveloper={this.addDeveloper} />
-        </header>
-      </div>
+      <Router history={ history }>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" ><Home /></Route>
+          <Route path="/bios"><DisplayBios developers={this.state.developers}/></Route>
+          <Route path="/create-bio" ><AddDeveloper /></Route>
+        </Switch>
+      </Router>
     );
   }
 }
