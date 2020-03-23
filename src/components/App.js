@@ -4,14 +4,11 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
 
 import DisplayBios from './DisplayBios';
 import AddDeveloper from './AddDeveloper';
 import Navbar from './Navbar';
 import Home from './Home';
-
-const history = createBrowserHistory();
 
 class App extends Component{
   constructor(props){
@@ -29,11 +26,11 @@ class App extends Component{
 
   render(){
     return (
-      <Router history={ history }>
+      <Router >
         <Navbar />
         <Switch>
           <Route exact path="/" ><Home /></Route>
-          <Route path="/bios"><DisplayBios developers={this.state.developers}/></Route>
+          <Route path="/bios" ><DisplayBios developers={this.state.developers}/></Route>
           <Route path="/create-bio" ><AddDeveloper /></Route>
         </Switch>
       </Router>
