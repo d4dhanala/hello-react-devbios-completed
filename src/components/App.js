@@ -4,24 +4,22 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import DisplayBios from './DisplayBios';
 import AddDeveloper from './AddDeveloper';
 import Navbar from './Navbar';
 import Home from './Home';
+import devActions from '../reducers/devBios';
+
 
 class App extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      developers:[]
-    }
-  }
 
   componentDidMount(){
     fetch("https://developer-service-overspeedy-celebratedness.cfapps.io/developers")
     .then(response=>response.json())
-    .then(devs=>this.setState({developers:devs}));
+    .then(devs=>this.props.fetchDevelopers(devs));
+    console.log("did mount called in App Component");
   }
 
   render(){
@@ -30,7 +28,7 @@ class App extends Component{
         <Navbar />
         <Switch>
           <Route exact path="/" ><Home /></Route>
-          <Route path="/bios" ><DisplayBios developers={this.state.developers}/></Route>
+          <Route path="/bios" ><DisplayBios developers={this.props.developers}/></Route>
           <Route path="/create-bio" ><AddDeveloper /></Route>
         </Switch>
       </Router>
@@ -38,4 +36,8 @@ class App extends Component{
   }
 }
 
-export default App;
+export default connect(({developers})=>({
+  developers:developers
+}),{
+  fetchDevelopers: devActions.getAllBiosActionCreator
+})(App);

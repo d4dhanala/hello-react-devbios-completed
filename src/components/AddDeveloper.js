@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Developer from '../models/developer';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import devActions from '../reducers/devBios';
 
 export class AddDeveloper extends Component {
     constructor(props){
@@ -40,7 +42,7 @@ export class AddDeveloper extends Component {
               headers: {'Content-Type':'application/json'}
             }
         )
-            
+        this.props.addDeveloper(developer);   
         this.clearForm();
     }
 
@@ -91,6 +93,10 @@ export class AddDeveloper extends Component {
     }
 }
 
-export default withRouter(AddDeveloper);
+export default connect(({developers})=>({
+    developers:developers
+  }),{
+    addDeveloper: devActions.addBioActionCreator
+  })(withRouter(AddDeveloper));
 
 
