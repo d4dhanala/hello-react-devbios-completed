@@ -18,6 +18,9 @@ function Navbar() {
                 <li className="nav-item" >
                     <Link to="/create-bio" className="nav-link" >Create Bios</Link>
                 </li>
+                <li className="nav-item" >
+                    <Link to="/search" className="nav-link" >Search</Link>
+                </li>
             </ul>
         </nav>
     );

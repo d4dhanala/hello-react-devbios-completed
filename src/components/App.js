@@ -11,6 +11,7 @@ import AddDeveloper from './AddDeveloper';
 import Navbar from './Navbar';
 import Home from './Home';
 import devActions from '../reducers/devBios';
+import SearchDevelopers from './SearchDevelopers';
 
 
 class App extends Component{
@@ -30,6 +31,7 @@ class App extends Component{
           <Route exact path="/" ><Home /></Route>
           <Route path="/bios" ><DisplayBios developers={this.props.developers}/></Route>
           <Route path="/create-bio" ><AddDeveloper /></Route>
+          <Route path="/search" ><SearchDevelopers /></Route>
         </Switch>
       </Router>
     );
