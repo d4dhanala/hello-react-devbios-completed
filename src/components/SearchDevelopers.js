@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import DeveloperBio from './DeveloperBio';
 import clean from 'clean-tagged-string'
+import queryArgs from '../GraphQLUtils/devQueryArgsBuilder';
 
 export class SearchDevelopers extends Component {
     constructor(props){
@@ -34,22 +35,8 @@ export class SearchDevelopers extends Component {
 
     submitForm = (event) => {
         event.preventDefault();
-        let queryVars;
-
-        switch(this.state.queryName){
-            case 'devsByFirstName':
-                queryVars = `(name:"${this.state.queryValue}")`
-                break;
-            case 'devsByLastName':
-                queryVars = `(name:"${this.state.queryValue}")`
-                break;
-            case 'devsByFavLang':
-                queryVars = `(language:"${this.state.queryValue}")`
-                break;
-            case 'devsByYearStarted':
-                queryVars = `(year:"${this.state.queryValue}")`
-                break;
-        }
+        let queryArgsFunction = queryArgs[this.state.queryName];
+        let queryVars = queryArgsFunction(this.state.queryValue);
 
         const query = clean `{
             ${this.state.queryName}${queryVars}{
@@ -68,29 +55,8 @@ export class SearchDevelopers extends Component {
         fetch(`https://dev-bios-graphql.cfapps.io/q?query=${query}`)
         .then(response=>response.json())
         .then(response=>{
-            switch(this.state.queryName){
-                case 'devsByFirstName':
-                        this.setState({
-                            developers:response.data.devsByFirstName
-                        });
-                    break;
-                case 'devsByLastName':
-                      this.setState({
-                        developers:response.data.devsByLastName
-                     });
-                    break;
-                case 'devsByFavLang':
-                        this.setState({
-                            developers:response.data.devsByFavLang
-                         });
-                    break;
-                case 'devsByYearStarted':
-                        this.setState({
-                            developers:response.data.devsByYearStarted
-                         });
-                    break;
-            }
             this.setState({
+                developers: response.data[this.state.queryName],
                 displayResults:true
             })
             
@@ -123,9 +89,8 @@ export class SearchDevelopers extends Component {
                             </form>
                         </div>
                     </div>
-                </div>
                 {
-                    (this.state.displayResuts)
+                    (this.state.displayResults)
                         ?
                             this.state.developers.map(
                                 (dev) => <DeveloperBio developer={dev} key={dev.id}/>
@@ -133,6 +98,7 @@ export class SearchDevelopers extends Component {
                         :
                         <span></span>
                 }
+                </div>
             </div>
         )
     }
