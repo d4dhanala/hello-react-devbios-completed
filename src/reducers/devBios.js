@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
 
-const GET_ALL_BIOS = 'GET_ALL_BIO';
+const GET_ALL_BIOS = 'GET_ALL_BIOS';
 const ADD_BIO = 'ADD_BIO';
 
 

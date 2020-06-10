@@ -52,7 +52,7 @@ export class SearchDevelopers extends Component {
     }
 
     callGraphQL = (query)=>{
-        fetch(`https://dev-bios-graphql.cfapps.io/q?query=${query}`)
+        fetch(`https://dev-bios-graphql-dot-tech-services-1000201953.uc.r.appspot.com/q?query=${query}`)
         .then(response=>response.json())
         .then(response=>{
             this.setState({

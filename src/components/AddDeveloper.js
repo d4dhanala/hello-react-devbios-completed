@@ -35,7 +35,7 @@ export class AddDeveloper extends Component {
                 this.state.favoriteLanguage,
                 this.state.yearStarted
         );
-        fetch('https://developer-service-overspeedy-celebratedness.cfapps.io/developer',
+        fetch('https://tech-services-1000201953.uc.r.appspot.com/developer',
             {
               method: 'POST',
               body: JSON.stringify(developer),

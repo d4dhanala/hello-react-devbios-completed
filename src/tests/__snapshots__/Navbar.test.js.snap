@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home navigate to correct route 1`] = `
+<nav
+  className="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between"
+>
+  <a
+    className="navbar-brand"
+    href="/"
+    onClick={[Function]}
+  >
+    <img
+      alt="logo"
+      className="brand"
+      src="logo.svg"
+    />
+  </a>
+  <ul
+    className="navbar-nav"
+  >
+    <li
+      className="nav-item"
+    >
+      <a
+        className="nav-link"
+        href="/"
+        onClick={[Function]}
+      >
+        Home
+      </a>
+    </li>
+    <li
+      className="nav-item"
+    >
+      <a
+        className="nav-link"
+        href="/bios"
+        onClick={[Function]}
+      >
+        Developer Bios
+      </a>
+    </li>
+    <li
+      className="nav-item"
+    >
+      <a
+        className="nav-link"
+        href="/create-bio"
+        onClick={[Function]}
+      >
+        Create Bios
+      </a>
+    </li>
+    <li
+      className="nav-item"
+    >
+      <a
+        className="nav-link"
+        href="/search"
+        onClick={[Function]}
+      >
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`Home navigates to correct route 1`] = `
+<nav
+  className="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between"
+>
+  <a
+    className="navbar-brand"
+    href="/"
+    onClick={[Function]}
+  >
+    <img
+      alt="logo"
+      className="brand"
+      src="logo.svg"
+    />
+  </a>
+  <ul
+    className="navbar-nav"
+  >
+    <li
+      className="nav-item"
+    >
+      <a
+        className="nav-link"
+        href="/"
+        onClick={[Function]}
+      >
+        Home
+      </a>
+    </li>
+    <li
+      className="nav-item"
+    >
+      <a
+        className="nav-link"
+        href="/bios"
+        onClick={[Function]}
+      >
+        Developer Bios
+      </a>
+    </li>
+    <li
+      className="nav-item"
+    >
+      <a
+        className="nav-link"
+        href="/create-bio"
+        onClick={[Function]}
+      >
+        Create Bios
+      </a>
+    </li>
+    <li
+      className="nav-item"
+    >
+      <a
+        className="nav-link"
+        href="/search"
+        onClick={[Function]}
+      >
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`links navigate to correct route 1`] = `
+<nav
+  className="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between"
+>
+  <a
+    className="navbar-brand"
+    href="/"
+    onClick={[Function]}
+  >
+    <img
+      alt="logo"
+      className="brand"
+      src="logo.svg"
+    />
+  </a>
+  <ul
+    className="navbar-nav"
+  >
+    <li
+      className="nav-item"
+    >
+      <a
+        className="nav-link"
+        href="/"
+        onClick={[Function]}
+      >
+        Home
+      </a>
+    </li>
+    <li
+      className="nav-item"
+    >
+      <a
+        className="nav-link"
+        href="/bios"
+        onClick={[Function]}
+      >
+        Developer Bios
+      </a>
+    </li>
+    <li
+      className="nav-item"
+    >
+      <a
+        className="nav-link"
+        href="/create-bio"
+        onClick={[Function]}
+      >
+        Create Bios
+      </a>
+    </li>
+    <li
+      className="nav-item"
+    >
+      <a
+        className="nav-link"
+        href="/search"
+        onClick={[Function]}
+      >
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

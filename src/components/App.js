@@ -15,14 +15,15 @@ import SearchDevelopers from './SearchDevelopers';
 
 
 class App extends Component{
-
-  componentDidMount(){
-    fetch("https://developer-service-overspeedy-celebratedness.cfapps.io/developers")
+  componentDidMount=()=>{
+    fetch("https://tech-services-1000201953.uc.r.appspot.com/developers")
     .then(response=>response.json())
-    .then(devs=>this.props.fetchDevelopers(devs));
-    console.log("did mount called in App Component");
+    .then(devs=>{
+      this.props.fetchDevelopers(devs);
+    });
   }
-
+   
+    
   render(){
     return (
       <Router >
