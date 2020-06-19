@@ -4,7 +4,7 @@ import { act } from "react-dom/test-utils";
 import configureStore from 'redux-mock-store';
 import App from '../components/App';
 import Developer from '../models/developer';
-import devActions from '../reducers/devBios';
+
 
 const initialState = {developer:[]};
 const mockStore = configureStore();

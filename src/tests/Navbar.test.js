@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import Navbar from '../components/Navbar';
 import renderer from 'react-test-renderer';
 import {
@@ -25,18 +25,15 @@ test('renders Create Bios link', () => {
     expect(linkElement).toBeInTheDocument();
 });
 
-test('Home Navigates to proper url', () => {
+test('renders Search Developers link', () => {
     const { getByText } = render(<Router ><Navbar /></Router>);
-    const linkElement = getByText(/Create Bios/);
+    const linkElement = getByText(/Search/i);
     expect(linkElement).toBeInTheDocument();
 });
 
 test('Home navigates to correct route', ()=>{
-    const component = renderer.create(<Router><Navbar /></Router>);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-    console.log(tree);
-    let navlinks = tree.children[1].children[0]
-    expect(navlinks.children[0].props.href).toBe("/");
+    const component = render(<Router><Navbar /></Router>);
+    let navlinks = component.getByText(/Home/i);
+    expect(navlinks.getAttribute("href")).toBe("/");
     
 })
